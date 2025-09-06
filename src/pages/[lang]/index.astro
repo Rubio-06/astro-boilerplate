@@ -1,0 +1,19 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { t } from '@utils/i18n';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'fr' } },
+    // Add more languages as needed
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = lang ?? 'en';
+---
+
+<BaseLayout title={t(currentLang, 'home.title')}>
+  <h2 class="mb-4 text-2xl">{t(currentLang, 'home.welcome')}</h2>
+</BaseLayout>

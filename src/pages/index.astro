@@ -1,0 +1,5 @@
+---
+const lang = Astro.cookies.get('lang') || 'en';
+
+return Astro.redirect(`/${lang}/`);
+---
